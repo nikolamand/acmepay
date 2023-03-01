@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -34,6 +36,7 @@ import { SuccessComponent } from './components/payment-forms/success/success.com
     AppRoutingModule,
     HttpClientModule,
     MatInputModule,
+    MatButtonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -3,7 +3,7 @@
     <div class="formGroup cardNumber">
       <div class="wrap">
         <label for="cardNumber">Card number:</label>
-        <input type="text" id="cardNumber" formControlName="cardNumber">
+        <input matInput placeholder="Card number" type="text" id="cardNumber" formControlName="cardNumber">
       </div>
       <div class="error" *ngIf="visaForm.get('cardNumber')?.invalid && visaForm.get('cardNumber')?.touched">
         <div *ngIf="visaForm.get('cardNumber')?.errors?.['required']">Card Number is required</div>
@@ -13,7 +13,7 @@
     <div class="formGroup expirationDate">
       <div class="wrap">
         <label for="expirationDate">Exp date:</label>
-        <input type="text" id="expirationDate" formControlName="expirationDate">
+        <input matInput placeholder="Exp date" type="text" id="expirationDate" formControlName="expirationDate">
       </div>
       <div class="error" *ngIf="visaForm.get('expirationDate')?.invalid && visaForm.get('expirationDate')?.touched">
         <div *ngIf="visaForm.get('expirationDate')?.errors?.['required']">Expiration Date is required</div>
@@ -23,7 +23,7 @@
     <div class="formGroup cardHolder">
       <div class="wrap">
         <label for="cardHolder">Card holder:</label>
-        <input type="text" id="cardHolder" formControlName="cardHolder">
+        <input matInput placeholder="Card holder" type="text" id="cardHolder" formControlName="cardHolder">
       </div>
       <div class="error" *ngIf="visaForm.get('cardHolder')?.invalid && visaForm.get('cardHolder')?.touched">
         <div *ngIf="visaForm.get('cardHolder')?.errors?.['required']">Card Holder is required</div>
@@ -35,7 +35,7 @@
     <div class="formGroup cvc">
       <div class="wrap">
         <label for="cvc">CVC:</label>
-        <input type="text" id="cvc" formControlName="cvc">
+        <input matInput placeholder="CVC" type="text" id="cvc" formControlName="cvc">
       </div>
       <div class="error" *ngIf="visaForm.get('cvc')?.invalid && visaForm.get('cvc')?.touched">
         <div *ngIf="visaForm.get('cvc')?.errors?.['required']">CVC is required</div>
@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="buttonWrap">
-      <button class="submit" type="submit" [disabled]="visaForm.invalid">Pay</button>
+      <button mat-stroked-button class="submit" type="submit" [disabled]="visaForm.invalid">Pay</button>
     </div>
   </form>
 </app-form-container>

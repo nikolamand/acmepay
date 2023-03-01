@@ -21,6 +21,4 @@ export class ContainerComponent implements OnInit {
       this.item = data;
     });
   }
-
-
 }

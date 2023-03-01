@@ -4,7 +4,7 @@
     <div class="formGroup">
       <div class="wrap">
         <label for="iban">IBAN</label>
-        <input type="text" class="form-control" id="iban" formControlName="iban">
+        <input matInput placeholder="IBAN" type="text" class="form-control" id="iban" formControlName="iban">
       </div>
       <div *ngIf="sepaForm.get('iban')?.invalid && (sepaForm.get('iban')?.dirty || sepaForm.get('iban')?.touched)">
         <div *ngIf="sepaForm.get('iban')?.errors?.['required']">IBAN is required.</div>
@@ -16,7 +16,7 @@
     <div class="formGroup">
       <div class="wrap">
         <label for="bic">BIC</label>
-        <input type="text" class="form-control" id="bic" formControlName="bic">
+        <input matInput placeholder="BIC" type="text" class="form-control" id="bic" formControlName="bic">
       </div>
       <div *ngIf="sepaForm.get('bic')?.invalid && (sepaForm.get('bic')?.dirty || sepaForm.get('bic')?.touched)">
         <div *ngIf="sepaForm.get('bic')?.errors?.['required']">BIC is required.</div>
@@ -28,7 +28,7 @@
     <div class="formGroup">
       <div class="wrap">
         <label for="accountHolder">Holder Name</label>
-        <input type="text" class="form-control" id="accountHolder" formControlName="accountHolder">
+        <input matInput placeholder="Holder Name" type="text" class="form-control" id="accountHolder" formControlName="accountHolder">
       </div>
       <div
         *ngIf="sepaForm.get('accountHolder')?.invalid && (sepaForm.get('accountHolder')?.dirty || sepaForm.get('accountHolder')?.touched)">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="buttonWrap">
-      <button type="submit" class="btn btn-primary" [disabled]="sepaForm.invalid">Pay</button>
+      <button mat-stroked-button type="submit" [disabled]="sepaForm.invalid">Pay</button>
     </div>
   </form>
 </app-form-container>

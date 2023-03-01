@@ -8,6 +8,7 @@ import { PaymentMethod } from 'src/app/services/payment';
   templateUrl: './payment-method.component.html',
   styleUrls: ['./payment-method.component.scss']
 })
+
 export class PaymentMethodComponent implements OnInit {
   id: number | undefined;
   item: PaymentMethod | undefined;
@@ -16,7 +17,7 @@ export class PaymentMethodComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.queryParams['id'];
-    
+
     this.paymentService.getPayment(this.id!.toString()).subscribe((data: any) => {
       this.item = data;
     });
