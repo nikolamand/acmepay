@@ -1,0 +1,21 @@
+.error {
+    color: red
+}
+
+.form {
+    font-size: 0.8rem;
+    .formGroup {
+        .wrap {
+            padding: 0 0.5rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .buttonWrap {
+        display: flex;
+        justify-content: right;
+        padding-top: 5rem;
+    }
+}

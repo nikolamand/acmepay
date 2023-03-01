@@ -1,0 +1,10 @@
+
+<div class="container">
+    <h1>Select payment:</h1>
+    <div class="item" *ngFor="let item of payments">
+        <p class="name">{{item?.name}}</p>
+        <div class="amount"><p>{{item?.currency}} {{item?.amount}}</p></div>
+        <a class="link" (click)="setItem(item)" href="payment?id={{item.id}}">proceed</a>
+    </div>
+</div>
+

@@ -1,0 +1,12 @@
+<app-form-container>
+    <div class="container">
+        <div class="info"></div>
+        <div *ngIf="item" class="selectMethod">
+            <div *ngFor="let method of item?.methods">
+                <a class="link" [routerLink]="['/' + method.toLowerCase()]" [queryParams]="{id: id?.toString()}">
+                    <p class="linkButton">{{method}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</app-form-container>

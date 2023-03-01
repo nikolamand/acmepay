@@ -1,0 +1,50 @@
+<app-form-container>
+  <form class="form" [formGroup]="visaForm" (ngSubmit)="onSubmit()">
+    <div class="formGroup cardNumber">
+      <div class="wrap">
+        <label for="cardNumber">Card number:</label>
+        <input type="text" id="cardNumber" formControlName="cardNumber">
+      </div>
+      <div class="error" *ngIf="visaForm.get('cardNumber')?.invalid && visaForm.get('cardNumber')?.touched">
+        <div *ngIf="visaForm.get('cardNumber')?.errors?.['required']">Card Number is required</div>
+        <div *ngIf="visaForm.get('cardNumber')?.errors?.['invalid']">Invalid Card Number</div>
+      </div>
+    </div>
+    <div class="formGroup expirationDate">
+      <div class="wrap">
+        <label for="expirationDate">Exp date:</label>
+        <input type="text" id="expirationDate" formControlName="expirationDate">
+      </div>
+      <div class="error" *ngIf="visaForm.get('expirationDate')?.invalid && visaForm.get('expirationDate')?.touched">
+        <div *ngIf="visaForm.get('expirationDate')?.errors?.['required']">Expiration Date is required</div>
+        <div *ngIf="visaForm.get('expirationDate')?.errors?.['pattern']">Invalid Expiration Date format. Use MM/YY</div>
+      </div>
+    </div>
+    <div class="formGroup cardHolder">
+      <div class="wrap">
+        <label for="cardHolder">Card holder:</label>
+        <input type="text" id="cardHolder" formControlName="cardHolder">
+      </div>
+      <div class="error" *ngIf="visaForm.get('cardHolder')?.invalid && visaForm.get('cardHolder')?.touched">
+        <div *ngIf="visaForm.get('cardHolder')?.errors?.['required']">Card Holder is required</div>
+        <div *ngIf="visaForm.get('cardHolder')?.errors?.['minlength']">Card Holder must have at least 15 characters
+        </div>
+        <div *ngIf="visaForm.get('cardHolder')?.errors?.['maxlength']">Card Holder must have at most 50 characters</div>
+      </div>
+    </div>
+    <div class="formGroup cvc">
+      <div class="wrap">
+        <label for="cvc">CVC:</label>
+        <input type="text" id="cvc" formControlName="cvc">
+      </div>
+      <div class="error" *ngIf="visaForm.get('cvc')?.invalid && visaForm.get('cvc')?.touched">
+        <div *ngIf="visaForm.get('cvc')?.errors?.['required']">CVC is required</div>
+        <div *ngIf="visaForm.get('cvc')?.errors?.['minlength']">CVC must have at least 3 digits</div>
+        <div *ngIf="visaForm.get('cvc')?.errors?.['maxlength']">CVC must have at most 3 digits</div>
+      </div>
+    </div>
+    <div class="buttonWrap">
+      <button class="submit" type="submit" [disabled]="visaForm.invalid">Pay</button>
+    </div>
+  </form>
+</app-form-container>

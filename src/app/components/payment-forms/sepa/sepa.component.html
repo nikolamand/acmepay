@@ -1,0 +1,46 @@
+<app-form-container>
+  <form class="form" [formGroup]="sepaForm" (ngSubmit)="onSubmit()">
+    <div class="text">Please, fill out the required fields</div>
+    <div class="formGroup">
+      <div class="wrap">
+        <label for="iban">IBAN</label>
+        <input type="text" class="form-control" id="iban" formControlName="iban">
+      </div>
+      <div *ngIf="sepaForm.get('iban')?.invalid && (sepaForm.get('iban')?.dirty || sepaForm.get('iban')?.touched)">
+        <div *ngIf="sepaForm.get('iban')?.errors?.['required']">IBAN is required.</div>
+        <div *ngIf="sepaForm.get('iban')?.errors?.['minlength']">IBAN must be at least 15 characters long.</div>
+        <div *ngIf="sepaForm.get('iban')?.errors?.['maxlength']">IBAN cannot be more than 32 characters long.</div>
+        <div *ngIf="sepaForm.get('iban')?.errors?.['pattern']">IBAN can only contain alphanumeric characters.</div>
+      </div>
+    </div>
+    <div class="formGroup">
+      <div class="wrap">
+        <label for="bic">BIC</label>
+        <input type="text" class="form-control" id="bic" formControlName="bic">
+      </div>
+      <div *ngIf="sepaForm.get('bic')?.invalid && (sepaForm.get('bic')?.dirty || sepaForm.get('bic')?.touched)">
+        <div *ngIf="sepaForm.get('bic')?.errors?.['required']">BIC is required.</div>
+        <div *ngIf="sepaForm.get('bic')?.errors?.['minlength']">BIC must be 8 characters long.</div>
+        <div *ngIf="sepaForm.get('bic')?.errors?.['maxlength']">BIC must be 8 characters long.</div>
+        <div *ngIf="sepaForm.get('bic')?.errors?.['pattern']">BIC can only contain alphanumeric characters.</div>
+      </div>
+    </div>
+    <div class="formGroup">
+      <div class="wrap">
+        <label for="accountHolder">Holder Name</label>
+        <input type="text" class="form-control" id="accountHolder" formControlName="accountHolder">
+      </div>
+      <div
+        *ngIf="sepaForm.get('accountHolder')?.invalid && (sepaForm.get('accountHolder')?.dirty || sepaForm.get('accountHolder')?.touched)">
+        <div *ngIf="sepaForm.get('accountHolder')?.errors?.['required']">Bank Account Holder is required.</div>
+        <div *ngIf="sepaForm.get('accountHolder')?.errors?.['minlength']">Bank Account Holder must be at least 15
+          characters long.</div>
+        <div *ngIf="sepaForm.get('accountHolder')?.errors?.['maxlength']">Bank Account Holder cannot be more than 50
+          characters long.</div>
+      </div>
+    </div>
+    <div class="buttonWrap">
+      <button type="submit" class="btn btn-primary" [disabled]="sepaForm.invalid">Pay</button>
+    </div>
+  </form>
+</app-form-container>
